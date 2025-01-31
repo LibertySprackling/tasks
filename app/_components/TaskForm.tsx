@@ -31,6 +31,7 @@ export const TaskForm: React.FC<React.PropsWithChildren<ITaskFormProps>> = ({ up
         hideFormAction();
     }
 
+
     return (
         <Box
         component="form"
@@ -38,7 +39,7 @@ export const TaskForm: React.FC<React.PropsWithChildren<ITaskFormProps>> = ({ up
         noValidate
         autoComplete="off"
         >
-            <TextField sx={textFieldStyles} id="title" label="Title" variant="outlined" value={title} onChange={(e) => setTitle(e.target.value)}/>
+            <TextField sx={textFieldStyles} error={title === ''} id="title" label="Title" variant="outlined" value={title} onChange={(e) => setTitle(e.target.value)}/>
             <TextField sx={textFieldStyles} id="description" label="Description" variant="outlined" value={description} onChange={(e) => setDescription(e.target.value)}/>
             <FormControl fullWidth>
                 <InputLabel id="status-select">Status</InputLabel>
@@ -53,7 +54,11 @@ export const TaskForm: React.FC<React.PropsWithChildren<ITaskFormProps>> = ({ up
                     <MenuItem sx={textFieldStyles} value={'complete'}>Complete</MenuItem>
                 </Select>
             </FormControl>
-            <Button variant='contained' onClick={() => handleSubmit()}>Submit</Button>
+            <Button 
+                sx={{ "&.Mui-disabled": {background: "grey"}}}
+                variant='contained' 
+                disabled={title === ''} 
+                onClick={() => handleSubmit()}>Submit</Button>
         </Box>
 
     )

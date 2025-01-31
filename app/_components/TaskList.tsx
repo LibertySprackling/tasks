@@ -42,6 +42,7 @@ export const TaskList: React.FC<React.PropsWithChildren<ITaskListProps>> = ({
         localStorage.setItem('data', storedData)
     }
 
+    // localStorage.clear()
     return (
         <Box sx={{ display: 'flex'}}>
             <Box>
