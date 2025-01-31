@@ -24,6 +24,7 @@ export const TaskItem: React.FC<React.PropsWithChildren<ITaskItemProps>> = ({
     const [status, setStatus] = useState<Status>(completionStatus);
     
     const isIncomplete = status === "incomplete";
+    const bgColor = isIncomplete ? 'red' : 'green';
 
     const handleClick= () => {
         const newStatus = isIncomplete ? "complete" : "incomplete";
@@ -36,10 +37,10 @@ export const TaskItem: React.FC<React.PropsWithChildren<ITaskItemProps>> = ({
     } 
 
     return (
-        <Box>
+        <Box sx={{ m: 1 }}>
             <Card variant="outlined">
-                <CardContent>
-                    <Typography>{title}</Typography>
+                <CardContent sx={{ backgroundColor: bgColor}}>
+                    <Typography variant='h3'>{title}</Typography>
                     <Typography>{description}</Typography>
                     <Typography>Status: {status}</Typography>
                 </CardContent>

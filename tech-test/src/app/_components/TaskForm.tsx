@@ -34,7 +34,7 @@ export const TaskForm: React.FC<React.PropsWithChildren<ITaskFormProps>> = ({ up
     return (
         <Box
         component="form"
-        sx={{ '& > :not(style)': { m: 1, width: '25ch' }}}
+        sx={{ '& > :not(style)': { m: 1, width: '25ch', display: 'flex'}}}
         noValidate
         autoComplete="off"
         >

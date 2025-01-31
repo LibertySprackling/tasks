@@ -1,7 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
 import { Status, TaskItem } from './TaskItem';
 import { Button } from '@mui/material';
 import { TaskForm } from './TaskForm';
@@ -44,7 +43,7 @@ export const TaskList: React.FC<React.PropsWithChildren<ITaskListProps>> = ({
     }
 
     return (
-        <Container>
+        <Box sx={{ display: 'flex'}}>
             <Box>
                 {tasks.map(task => (
                     <TaskItem 
@@ -53,14 +52,16 @@ export const TaskList: React.FC<React.PropsWithChildren<ITaskListProps>> = ({
                         description={task.description} 
                         completionStatus={task.completionStatus}/>
                 ))}
+                {!isAddingTask && (
+                    <Button sx={{ m: 1 }} variant='contained' onClick={() => openForm()}>Add a task</Button>
+                )}
             </Box>
-            {!isAddingTask && (
-                <Button variant='contained' onClick={() => openForm()}>Add a task</Button>
-            )}
-            {isAddingTask && (
-                <TaskForm updateAction={updateTasks} hideFormAction={closeForm}/>
-            )}
-        </Container>
+            <Box sx={{ display: 'flex'}} >
+                {isAddingTask && (
+                    <TaskForm updateAction={updateTasks} hideFormAction={closeForm}/>
+                )}
+            </Box>
+        </Box>
     )
 
 };

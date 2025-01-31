@@ -3,9 +3,9 @@ import { TaskList } from "./_components/TaskList";
 import { Tasks } from "./_components/TaskList";
 
 const myTasks: Tasks[] = [
-  {title: "Title 1" , description: "Sample description here", completionStatus: 'incomplete'},
-  {title: "Title 2" , description: "Sample description here", completionStatus: 'incomplete'},
-  {title: "Title 3" , description: "Sample description here", completionStatus: 'incomplete'},
+  {title: "Kitten" , description: "I really need a small ginger cat", completionStatus: 'incomplete'},
+  {title: "Lottery" , description: "Try to win the lottery this week", completionStatus: 'incomplete'},
+  {title: "Invention" , description: "Invent something new and amazing", completionStatus: 'incomplete'},
 ]
 
 export default function Home() {
